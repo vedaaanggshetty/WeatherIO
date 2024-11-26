@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # WeatherIO
 =======
 
@@ -10,9 +9,6 @@ A brief description of what this project does and who it's for
 
 **Client:** HTML, CSS, JavaScript, API
 
-## Demo
-
-Insert gif or link to demo
 
 ## Features
 
@@ -51,15 +47,3 @@ Open with live server
 ```
 
 
-## Authors
-
-- [@codewithsadee](https://www.github.com/codewithsadee)
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-## Support
-
-For support, Join my [Patreon Comunity](https://www.patreon.com/codewithsadee/membership) or Subscribe My [YouTube Channel](https://youtube.com/@codewithsadee).
->>>>>>> 5302528 (initial)
