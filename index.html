@@ -12,53 +12,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-    <!-- google fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
     <!-- Style -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <style>
+        /* Custom styles for the forecast and highlights sections */
+        .forecast-card, .highlight-list {
+            background-color: var(--surface);
+            padding: 16px;
+            border-radius: var(--radius-16);
+            box-shadow: var(--shadow-2);
+        }
 
-    <!-- JS link -->
-    <script src="./assets/js/app.js" type="module"></script>
-    <script src="./assets/js/route.js" type="module"></script>
+        .forecast-card ul, .highlight-list {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
     <!-- HEADER -->
-
     <header class="header">
         <div class="container">
             <a href="#" class="logo">
-                <img src="./assets/images/logo.png" width="364" height="58" alt="logo" />
+                <img src="./assets/images/logo.png" width="150" height="58" alt="Weather App Logo" />
             </a>
-
-            <div class="search-view" data-search-view>
-                <div class="search-wrapper">
-                    <input type="search" name="search" placeholder="Search City...." autocomplete="off"
-                        class="search-field" data-search-field />
-                    <span class="material-icons">search</span>
-
-                    <a href="javascript:history.back()" class="back-button">
-                        <span class="material-icons">arrow_back</span>
-                    </a>
-                </div>
-
-                <div class="search-result" data-search-result>
-                    <ul class="view-list" data-search-list>
-                        <li class="view-item">
-                            <span class="material-icons">location_on</span>
-
-                            <div>
-                                <p class="item-title">London</p>
-
-                                <p class="label-2 item-subtitle">State of London, GB</p>
-                            </div>
-
-                            <a href="#" class="item-link has-state" data-search-toggler></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
             <div class="header-actions">
                 <button class="icon-btn has-state" aria-label="open search" data-search-toggler>
@@ -66,7 +47,6 @@
                 </button>
                 <a href="#/current-location" class="btn-primary has-state" data-current-location-btn>
                     <span class="material-icons">my_location</span>
-
                     <span class="span">Current Location</span>
                 </a>
             </div>
@@ -76,33 +56,124 @@
     <main>
         <article class="container">
             <div class="container-left">
-                <!--
-                        - CURRENT WEATHER
-                    -->
-
+                <!-- Current Weather Section -->
                 <section class="section current-weather" aria-label="current weather" data-current-weather>
                     <div class="card card-lg current-weather-card">
                         <h2 class="title-2 card-title">Now</h2>
-
                         <div class="wrapper">
                             <p class="heading">25&deg;<sup>c</sup></p>
                             <img src="./assets/images/weather_icons/01d.png" width="64" height="64"
                                 alt="Overcast Clouds" class="weather-icon" />
                         </div>
                         <p class="body-3">Overcast Clouds</p>
-
                         <ul class="meta-list">
-                          <li class="meta-item">
-                            <span class="material-icon">calendar_today</span>
-                            <p class="title-3 meta-text">Thursday 16, Feb</p>
-                          </li>
-                          <li class="meta-item">
-                            <span class="m-icon">location_on</span>
-                            <p class="title-3 meta-text">London, GB</p>
-                          </li>
+                            <li class="meta-item">
+                                <span class="material-icons">calendar_today</span>
+                                <p class="title-3 meta-text">Thursday 16, Feb</p>
+                            </li>
+                            <li class="meta-item">
+                                <span class="material-icons">location_on</span>
+                                <p class="title-3 meta-text">London, GB</p>
+                            </li>
                         </ul>
-                        
+                    </div>
+                </section>
 
+                <!-- 5 Days Forecast Section -->
+                <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast>
+                    <h2 class="title-2" id="forecast-label">5 Days Forecast</h2>
+                    <div class="card card-lg forecast-card">
+                        <ul>
+                            <li class="card-item">
+                                <div class="icon-wrapper">
+                                    <img src="./assets/images/weather_icons/01n.png" width="36" height="36"
+                                        alt="Clear Night" class="weather-icon" />
+                                    <p class="title-2">25&deg;</p>
+                                </div>
+                                <p class="label-1">17 Feb</p>
+                                <p class="label-1">Friday</p>
+                            </li>
+                            <li class="card-item">
+                                <div class="icon-wrapper">
+                                    <img src="./assets/images/weather_icons/02d.png" width="36" height="36"
+                                        alt="Partly Cloudy" class="weather-icon" />
+                                    <p class="title-2">27&deg;</p>
+                                </div>
+                                <p class="label-1">18 Feb</p>
+                                <p class="label-1">Saturday</p>
+                            </li>
+                            <li class="card-item">
+                                <div class="icon-wrapper">
+                                    <img src="./assets/images/weather_icons/03d.png" width="36" height="36" alt="Cloudy"
+                                        class="weather-icon" />
+                                    <p class="title-2">22&deg;</p>
+                                </div>
+                                <p class="label-1">19 Feb</p>
+                                <p class="label-1">Sunday</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="content-right">
+                <section class="section highlights" aria-labelledby="highlights-label" data-highlights>
+                    <div class="card card-lg">
+                        <h2 class="title-2" id="highlights-label">Today's Highlights</h2>
+                        <div class="highlight-list">
+
+                            <!-- Highlight Card 1 -->
+                            <div class="card card-sm highlight-card one">
+                                <h3 class="title-3">Air Quality Index</h3>
+                                <div class="wrapper">
+                                    <span class="material-icons">air</span>
+                                    <ul class="card-list">
+                                        <li class="card-item">
+                                            <p class="title-1">78</p>
+                                            <p class="label-1">Good</p>
+                                        </li>
+                                        <li class="card-item">
+                                            <p class="title-1">50</p>
+                                            <p class="label-1">Moderate</p>
+                                        </li>
+                                        <li class="card-item">
+                                            <p class="title-1">25</p>
+                                            <p class="label-1">Excellent</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span class="badge aqi-1 label- 1" title="aqi message">Good</span>
+                            </div>
+
+                            <!-- Highlight Card 2 -->
+                            <div class="card card-sm highlight-card two">
+                                <h3 class="title-3">Wind Speed</h3>
+                                <div class="wrapper">
+                                    <span class="material-icons">air</span>
+                                    <p class="title-1">15 km/h</p>
+                                    <p class="label-1">Southwest</p>
+                                </div>
+                            </div>
+
+                            <!-- Highlight Card 3 -->
+                            <div class="card card-sm highlight-card three">
+                                <h3 class="title-3">Humidity</h3>
+                                <div class="wrapper">
+                                    <span class="material-icons">water_drop</span>
+                                    <p class="title-1">68%</p>
+                                </div>
+                            </div>
+
+                            <!-- Highlight Card 4 -->
+                            <div class="card card-sm highlight-card four">
+                                <h3 class="title-3">Visibility</h3>
+                                <div class="wrapper">
+                                    <span class="material-icons">visibility</span>
+                                    <p class="title-1">10 km</p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </section>
             </div>
