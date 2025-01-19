@@ -236,9 +236,6 @@ n-icon {
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
-/*-----------------------------------*\
-  #HEADER
-\*-----------------------------------*/
 
 .header .btn-primary .span {
   display: none;
@@ -287,14 +284,133 @@ n-icon {
   visibility: visible;
   clip-path: circle(130% at 73% 5%);
 }
+.search-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--on-surface);
+  border-block-start-color: transparent;
+  border-radius: var(--radius-circle);
+  animation: loading 500ms linear infinite;
+  display: none;
+}
 
+@keyframes loading {
+  0% {transform: translateY(-50%) rotate(0);}
+  100% {transform: translateY(-50%) rotate(0)}
+}
 
+.search-wrapper:has(.searching)::before {display: block;}
 
+.search-field {
+  height: 80px;
+  line-height: 80px;
+  padding-inline: 56px 16px;
+  outline: none;
+}
+
+.search-field :placeholder { color: var(--on-surface-variant-2)}
+
+.search-field::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-wrapper .leading-icon {
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  transform: translate(-50%, -50%);
+}
+
+.search-wrapper > .m-icon {
+  display: none;
+}
+
+.search-wrapper .icon-btn {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.search-view .view-list {
+  padding-block: 8px 16px;
+}
+
+.search-view .view-item {
+  position: relative;
+  height: 56px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 16px 24px;
+}
+.search-view .view-item :is(.m-icon, .item-subtitle) {
+  color: var(--on-surface-variant);
+}
+
+.search-view .view-item .item-link {
+  position: absolute;
+  inset: 0;
+  box-shadow: none;
+}
 
 
 /*-----------------------------------*\
   #CURRENT WEATHER
 \*-----------------------------------*/
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--surface);
+  padding: 16px;
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-2);
+}
+
+.current-weather .heading {
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.current-weather .weather-icon {
+  margin: 16px 0;
+  width: 64px;
+  height: 64px;
+}
+
+.current-weather .body-3 {
+  font-size: 16px;
+  color: var(--on-surface-variant);
+}
+
+.meta-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.meta-item .m-icon {
+  font-size: 24px;
+  color: var(--on-surface-variant);
+}
+
+.meta-item .meta-text {
+  font-size: 16px;
+}
 
 
 
