@@ -121,7 +121,7 @@
                     <div class="card card-lg">
                         <h2 class="title-2" id="highlights-label">Today's Highlights</h2>
                         <div class="highlight-list">
-
+                
                             <!-- Highlight Card 1 -->
                             <div class="card card-sm highlight-card one">
                                 <h3 class="title-3">Air Quality Index</h3>
@@ -142,9 +142,24 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <span class="badge aqi-1 label- 1" title="aqi message">Good</span>
+                                <span class="badge aqi-1 label-1" title="aqi message">Good</span>
                             </div>
 
+                            <div class="card card-sm highlight-card five">
+                                <h3 class="title-3">Sunrise & Sunset</h3>
+                                <div class="wrapper">
+                                    <!-- Sunrise -->
+                                    <div class="sub-wrapper">
+                                        <span class="material-icons">wb_sunny</span>
+                                        <p class="title-1">6:30 AM</p>
+                                    </div>
+                                    <!-- Sunset -->
+                                    <div class="sub-wrapper">
+                                        <span class="material-icons">nightlight_round</span>
+                                        <p class="title-1">6:15 PM</p>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- Highlight Card 2 -->
                             <div class="card card-sm highlight-card two">
                                 <h3 class="title-3">Wind Speed</h3>
@@ -154,7 +169,7 @@
                                     <p class="label-1">Southwest</p>
                                 </div>
                             </div>
-
+                
                             <!-- Highlight Card 3 -->
                             <div class="card card-sm highlight-card three">
                                 <h3 class="title-3">Humidity</h3>
@@ -163,7 +178,7 @@
                                     <p class="title-1">68%</p>
                                 </div>
                             </div>
-
+                
                             <!-- Highlight Card 4 -->
                             <div class="card card-sm highlight-card four">
                                 <h3 class="title-3">Visibility</h3>
@@ -172,12 +187,37 @@
                                     <p class="title-1">10 km</p>
                                 </div>
                             </div>
-
+                
+                           
+                            
+                
                         </div>
                     </div>
                 </section>
+                
             </div>
         </article>
+        <div class="chatbot">
+            <div class="chatbot-header">
+                <h3>Chatbot</h3>
+                <button class="chatbot-close-btn" aria-label="Close Chatbot">&times;</button>
+            </div>
+            <div class="chatbot-body">
+                <div class="chatbot-messages">
+                    <!-- Messages will appear here -->
+                </div>
+                <div class="chatbot-footer">
+                    <input
+                        type="text"
+                        placeholder="Ask me about the weather..."
+                        class="chatbot-input"
+                    />
+                    <button class="chatbot-send-btn">Send</button>
+                </div>
+            </div>
+            <button class="chatbot-toggle-btn">💬</button>
+        </div>
+        
     </main>
 </body>
 
