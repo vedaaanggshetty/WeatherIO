@@ -15,18 +15,24 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
+    <!-- Axios For Gemini -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/gemini.js"></script>
+
     <!-- Style -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <style>
         /* Custom styles for the forecast and highlights sections */
-        .forecast-card, .highlight-list {
+        .forecast-card,
+        .highlight-list {
             background-color: var(--surface);
             padding: 16px;
             border-radius: var(--radius-16);
             box-shadow: var(--shadow-2);
         }
 
-        .forecast-card ul, .highlight-list {
+        .forecast-card ul,
+        .highlight-list {
             padding: 0;
             margin: 0;
         }
@@ -69,7 +75,8 @@
                         <ul class="meta-list">
                             <li class="meta-item">
                                 <span class="material-icons">calendar_today</span>
-                                <p class="title-3 meta-text">Thursday 16, Feb</p>
+                                <p class="title-3 meta-text">Thursday 16,
+                                    Feb</p>
                             </li>
                             <li class="meta-item">
                                 <span class="material-icons">location_on</span>
@@ -81,7 +88,8 @@
 
                 <!-- 5 Days Forecast Section -->
                 <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast>
-                    <h2 class="title-2" id="forecast-label">5 Days Forecast</h2>
+                    <h2 class="title-2" id="forecast-label">5 Days
+                        Forecast</h2>
                     <div class="card card-lg forecast-card">
                         <ul>
                             <li class="card-item">
@@ -119,9 +127,10 @@
             <div class="content-right">
                 <section class="section highlights" aria-labelledby="highlights-label" data-highlights>
                     <div class="card card-lg">
-                        <h2 class="title-2" id="highlights-label">Today's Highlights</h2>
+                        <h2 class="title-2" id="highlights-label">Today's
+                            Highlights</h2>
                         <div class="highlight-list">
-                
+
                             <!-- Highlight Card 1 -->
                             <div class="card card-sm highlight-card one">
                                 <h3 class="title-3">Air Quality Index</h3>
@@ -169,7 +178,7 @@
                                     <p class="label-1">Southwest</p>
                                 </div>
                             </div>
-                
+
                             <!-- Highlight Card 3 -->
                             <div class="card card-sm highlight-card three">
                                 <h3 class="title-3">Humidity</h3>
@@ -178,7 +187,7 @@
                                     <p class="title-1">68%</p>
                                 </div>
                             </div>
-                
+
                             <!-- Highlight Card 4 -->
                             <div class="card card-sm highlight-card four">
                                 <h3 class="title-3">Visibility</h3>
@@ -187,37 +196,114 @@
                                     <p class="title-1">10 km</p>
                                 </div>
                             </div>
-                
-                           
-                            
-                
+
                         </div>
                     </div>
                 </section>
-                
+                <main>
+                    <style>
+                        /* Hourly Forecast Styling */
+                        .hourly-forecast {
+                            background-color: var(--surface);
+                            padding: 20px;
+                            border-radius: var(--radius-16);
+                            box-shadow: var(--shadow-2);
+                            overflow-x: auto;
+                            white-space: nowrap;
+                            display: flex;
+                            gap: 16px;
+                        }
+
+                        .hourly-item {
+                            background-color: var(--background);
+                            color: var(--on-background);
+                            padding: 12px;
+                            border-radius: var(--radius-16);
+                            text-align: center;
+                            min-width: 100px;
+                        }
+                    </style>
+                    <article class="container">
+                        <!-- Hourly Forecast Section -->
+                        <section class="section hourly-forecast" aria-label="hourly forecast">
+                            <h2 class="title-2">Hourly Forecast</h2>
+                            <div class="slider-container">
+                                <ul class="slider-list" id="hourlyForecast">
+                                    <!-- Hourly data will be inserted here -->
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="section hourly-forecast" aria-label="hourly forecast">
+                            <h2 class="title-2">Hourly Forecast</h2>
+                            <div class="slider-container">
+                                <ul class="slider-list" data-wind>
+                                    <li class="slider-item">...</li>
+                                    <li class="slider-item">
+                                        <div class="card card-sm slider-card">
+                                            <p class="body-3">03 PM</p>
+                                            <img src="./assets/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt=""
+                                                class="weather-icon" title="">
+                                            <p class="body-3">12 km/h</p>
+                                        </div>
+                                    </li>
+                                    <li class="slider-item">...</li>
+                                </ul>
+                            </div>
+                        </section>
+                        
+                    </article>
+                </main>
+                <script>
+                    // Fetch and Populate Hourly Forecast Data
+                    const hourlyForecastData = [
+                        { time: "3 PM", temp: "25&deg;C", icon: "01n.png" },
+                        { time: "4 PM", temp: "24&deg;C", icon: "02d.png" },
+                        { time: "5 PM", temp: "23&deg;C", icon: "03d.png" },
+                        { time: "6 PM", temp: "22&deg;C", icon: "04d.png" }
+                    ];
+
+                    const hourlyForecastContainer = document.getElementById("hourlyForecast");
+                    hourlyForecastData.forEach(hour => {
+                        const item = document.createElement("li");
+                        item.classList.add("hourly-item");
+                        item.innerHTML = `
+                            <p>${hour.time}</p>
+                            <img src="./assets/images/weather_icons/${hour.icon}" width="36" height="36" alt="Weather Icon">
+                            <p>${hour.temp}</p>
+                        `;
+                        hourlyForecastContainer.appendChild(item);
+                    });
+                </script>
             </div>
+
+            <div class="chatbot">
+                <button class="chatbot-toggle-btn">💬</button>
+                <div class="chatbot-body">
+                    <div class="chatbot-header">
+                        <h3></h3>
+                        <button class="chatbot-close-btn">✖</button>
+                    </div>
+                    <div class="chatbot-messages"></div>
+                    <div class="chatbot-footer">
+                        <input type="text" class="chatbot-input" placeholder="Type a message..." />
+                        <button class="chatbot-send-btn">Send</button>
+                    </div>
+                </div>
+            </div><script>
+            // Chatbot Toggle Functionality
+            const chatbotToggle = document.querySelector(".chatbot-toggle-btn");
+            const chatbotBody = document.querySelector(".chatbot-body");
+            const chatbotClose = document.querySelector(".chatbot-close-btn");
+    
+            chatbotToggle.addEventListener("click", () => {
+                chatbotBody.classList.toggle("active");
+            });
+    
+            chatbotClose.addEventListener("click", () => {
+                chatbotBody.classList.remove("active");
+            });</script>
+           
         </article>
-        <div class="chatbot">
-            <div class="chatbot-header">
-                <h3>Chatbot</h3>
-                <button class="chatbot-close-btn" aria-label="Close Chatbot">&times;</button>
-            </div>
-            <div class="chatbot-body">
-                <div class="chatbot-messages">
-                    <!-- Messages will appear here -->
-                </div>
-                <div class="chatbot-footer">
-                    <input
-                        type="text"
-                        placeholder="Ask me about the weather..."
-                        class="chatbot-input"
-                    />
-                    <button class="chatbot-send-btn">Send</button>
-                </div>
-            </div>
-            <button class="chatbot-toggle-btn">💬</button>
-        </div>
-        
     </main>
 </body>
 
